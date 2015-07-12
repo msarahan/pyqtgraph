@@ -37,6 +37,7 @@ before_install:
       fi;
     - chmod +x miniconda.sh
     - ./miniconda.sh -b -p /home/$USER/miniconda
+    - rm miniconda.sh
     - export PATH=/home/$USER/miniconda/bin:$PATH
     - conda update --yes conda
     - conda create -n testenv --yes --quiet pip python=$PYTHON
