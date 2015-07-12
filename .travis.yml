@@ -133,7 +133,7 @@ script:
     
     # Run unit tests
     - start_test "unit tests";
-      find . -iname "*test*.py"
+      find . -iname "*test*.py";
       PYTHONPATH=. py.test .;
       check_output "unit tests";
     
