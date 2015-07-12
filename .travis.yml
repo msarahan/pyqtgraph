@@ -133,7 +133,6 @@ script:
     
     # Run unit tests
     - start_test "unit tests";
-      find . -iname "*test*.py";
       PYTHONPATH=. py.test .;
       check_output "unit tests";
     
@@ -166,13 +165,13 @@ script:
     
     # Check install works
     - start_test "install test";
-      python${PYTHON} setup.py --quiet install;
+      python setup.py --quiet install;
       check_output "install test";
     
     # Check double-install fails
     # Note the bash -c is because travis strips off the ! otherwise.
     - start_test "double install test";
-      bash -c "! python${PYTHON} setup.py --quiet install";
+      bash -c "! python setup.py --quiet install";
       check_output "double install test";
       
     # Check we can import pg
