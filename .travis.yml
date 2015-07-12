@@ -40,8 +40,8 @@ before_install:
     - rm miniconda.sh
     - export PATH=/home/$USER/miniconda/bin:$PATH
     - conda update --yes conda
-    - conda create -n testenv --yes --quiet pip python=$PYTHON
-    - source activate testenv
+    #- conda create -n testenv --yes --quiet pip python=$PYTHON
+    #- source activate testenv
     - if [ ${QT} == 'pyqt' ]; then
           conda install --yes --quiet pyqt;
       fi;
@@ -83,7 +83,6 @@ before_script:
     # - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -screen 0 1400x900x24 -ac +extension GLX +render
     
     # Make sure everyone uses the correct python
-    - export PATH=/home/travis/bin:$PATH
     - which python
     - python --version
     # Help color output from each test
